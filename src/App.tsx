@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import ProductList from './Components/ProductList'
+import { ProductContext } from './Context/ProductContext'
+import './App.css'
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Checkout from './Components/Checkout'
+import { ProductsCheckout } from './Types/Product.d'
+import { useState } from 'react'
 
 function App() {
+  const [productsCheckout, setProductsCheckout] = useState<ProductsCheckout[]>([])
+  const value = { productsCheckout, setProductsCheckout }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ProductContext.Provider value={value}>
+      <Router>
+        <main className='App'>
+          <Routes>
+            <Route path='/' element={<ProductList />} />
+            <Route path='/checkout' element={<Checkout />} />
+          </Routes>
+        </main>
+      </Router>
+    </ProductContext.Provider>
+  )
 }
 
-export default App;
+export default App
