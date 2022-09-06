@@ -5,10 +5,10 @@ import { createTheme } from '@mui/material/styles'
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#1E1ED7',
+      main: '#6A52FF',
     },
     secondary: {
-      main: '#3C4257',
+      main: '#FF6363',
     },
     error: {
       main: red.A400,
@@ -22,10 +22,10 @@ const theme = createTheme({
   },
 
   components: {
-    MuiCardHeader: {
+    MuiInputBase: {
       styleOverrides: {
-        subheader: {
-          fontSize: '0.875rem',
+        input: {
+          padding: '10px 12px !important',
         },
       },
     },
