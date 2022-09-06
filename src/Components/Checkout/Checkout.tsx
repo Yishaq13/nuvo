@@ -152,8 +152,12 @@ export default function Checkout() {
               InputProps={{
                 endAdornment: (
                   <InputAdornment position='end'>
-                    <Box component='img' src='visa.svg' sx={{ width: '20px' }} />
-                    <Box component='img' ml={1} src='mastercard.svg' sx={{ width: '20px' }} />
+                    {formik.values.cardNumber.charAt(0) === '5' && (
+                      <Box component='img' ml={1} src='mastercard.svg' sx={{ width: '20px' }} />
+                    )}
+                    {formik.values.cardNumber.charAt(0) === '4' && (
+                      <Box component='img' src='visa.svg' sx={{ width: '20px' }} />
+                    )}
                   </InputAdornment>
                 ),
               }}
