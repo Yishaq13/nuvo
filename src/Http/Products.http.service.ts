@@ -6,9 +6,7 @@ export class ProductHttpService {
     const response = await axios.get<ProductsResponse>(
       'https://c8036bd8-ea01-4f47-9ff1-dbf8001a0500.mock.pstmn.io/products',
       {
-        params: {
-          requestId: '12344556',
-        },
+        data: JSON.stringify({ requestId: '12344556' }),
       },
     )
     return response.data
