@@ -43,7 +43,7 @@ export default function ProductList() {
         mt={12}
         alignItems='center'
       >
-        <NavLink to='/checkout'>
+        <NavLink to={getTotalQuantity() > 0 ? '/checkout' : ''}>
           <Badge badgeContent={getTotalQuantity()} color='error'>
             <Button
               disabled={getTotalQuantity() == 0}
